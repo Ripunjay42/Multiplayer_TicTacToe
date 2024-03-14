@@ -34,13 +34,13 @@ This is a React application that implements a multiplayer Tic Tac Toe game with 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/tic-tac-toe.git
+   https://github.com/Ripunjay42/Multiplayer_TicTacToe.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd tic-tac-toe
+   cd multiplayer_TicTacToe
    ```
 
 3. Install dependencies:
