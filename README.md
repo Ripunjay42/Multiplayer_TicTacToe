@@ -46,7 +46,7 @@ This is a React application that implements a multiplayer Tic Tac Toe game with 
 3. Install dependencies:
 
    ```bash
-   npm install
+   yarn install
    ```
 
 4. Set up Firebase and Stream API credentials in the appropriate configuration files.
@@ -56,7 +56,7 @@ This is a React application that implements a multiplayer Tic Tac Toe game with 
 1. Start the development server:
 
    ```bash
-   npm start
+   yarn start
    ```
 
 2. Open your browser and navigate to `http://localhost:3000` to access the application.
