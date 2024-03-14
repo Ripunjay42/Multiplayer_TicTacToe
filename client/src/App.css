@@ -1,0 +1,107 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display:table;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f0118;
+}
+
+.hd1{
+  color: rgb(7, 104, 168);
+  display: flex;
+  flex-direction: column;
+  font-size:20px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.Head{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+  color: rgb(20, 197, 14);
+}
+
+.Ls,
+.back{
+  margin-top: 10%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.login,
+.signUp,
+.joinGame,
+.back{
+  display: flex;
+  flex-direction:column;
+  margin-left: 30px;
+}
+
+.login input,
+.signUp input,
+.joinGame input {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #71058b;
+  border-radius: 4px;
+  width: 300px;
+  height: 30px;
+}
+
+.login button,
+.signUp button,
+.joinGame button,
+.lgo button,
+.back button{
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display:block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 180px;
+}
+
+.login button:hover,
+.signUp button:hover,
+.lgo button:hover,  
+.joinGame button:hover,
+.back button:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+
+.login label,
+.signUp label {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  color: rgb(40, 201, 35);
+}
+
+.lgo{
+  /* padding-right: 130px; */
+  padding-top: 10px;
+}
+ 
