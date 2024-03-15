@@ -56,18 +56,15 @@ function App({setisClick})
               </div>
             </Chat>
             </> 
-      ) : (
-        <>
-          <div className='Head'> <h1>TIC TAC TOE MULTIPLAYER</h1></div>
-      
+      ) : (          
           <div className='Ls'>
-            <SignUp setIsAuth={setIsAuth} />
-            <Login setIsAuth={setIsAuth} />
+              <div className='Head'> <h1>TIC TAC TOE MULTIPLAYER</h1></div>
+              <SignUp setIsAuth={setIsAuth} />
+              <Login setIsAuth={setIsAuth} />
+              <div className='back'>
+                <button  onClick={()=>{setisClick(false) }}>Back</button>
+              </div>
           </div>
-          <div className='back'>
-            <button  onClick={()=>{setisClick(false) }}>Go Home</button>
-          </div>
-        </>
         )}
     </div>
   );

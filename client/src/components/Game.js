@@ -20,7 +20,7 @@ function Game({ channel, setChannel }) {
         <h1>TIC TAC TOE </h1>
         <Board result={result} setResult={setResult} />
         <div className="result">
-            <h3>Result :</h3>
+            <p>Result : </p>
             {result.state === "won" && <div className="wintie"> {result.winner} Won The Game</div>}
             {result.state === "tie" && <div className="wintie"> Game Tied</div>}
           </div>

@@ -42,8 +42,8 @@ function JoinGame({logOut}) {
               setRivalUsername(event.target.value);
             }}
           />
-          <button onClick={createChannel}> Join/Start Game</button><br/>
-          <button onClick={logOut}> Log Out</button>
+          <button onClick={createChannel}> JoinGame </button><br/>
+          <button onClick={logOut}>LogOut</button>
 
         </div>
       )}

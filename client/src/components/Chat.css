@@ -20,11 +20,17 @@
     margin-top: 10px;
 }
 
+.mgs{
+  color:#e1ecf4;
+  font-size: 13px;
+  font-style: italic;
+  }
+
 
   .str-chat__list {
-    background-color: white;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    background-color: rgb(68, 69, 70);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     height: 370px;
     width: 350px;
     overflow: hidden;
@@ -33,15 +39,15 @@
   
   .str-chat__list ul {
     list-style-type: none;
-    margin: 5px;
-    padding: 5px;
+    margin: 2px;
+    padding: 4px;
     font-family: Arial, Helvetica, sans-serif;
   }
   .str-chat__list li {
     list-style-type: none;
-    background-color: rgb(26, 25, 25);
-    margin-top: 6px;
+    background-color: rgb(0, 0, 0);
     border-radius: 6px;
+    margin-top:5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,20 +70,22 @@
   }
   
   .str-chat__message-data {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   .str-chat__message-data span {
-    margin-left: 5px;
+    margin-left: 20px;
+    padding-right:10px;
   }
   
   .str-chat__message-data time {
-    margin-left: 5px;
+    margin-left:10px;
+    
   }
   
   .str-chat__input-flat {
     width: 350px;
     height: 85px;
-    background-color: rgb(25, 174, 194);
+    background-color: rgb(17, 44, 1);
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
   }
@@ -93,7 +101,7 @@
   .str-chat__input-flat-wrapper textarea {
     resize: none;
     width: 190px;
-    height: 50px;
+    height: 30px;
     border: none;
     border-radius: 6px;
     box-shadow: 0 0 0 3px rgb(6, 27, 214);
@@ -103,15 +111,14 @@
   
   .str-chat__message-simple__actions {
     width: 100%;
-    padding-left: 5px;
     margin-top: 5px;
   }
   .str-chat__message-simple__actions__action--reactions {
     display: flex;
     align-items: center;
     width: fit-content;
-    background: #ffffff;
-    border: 1px solid #e9e9ea;
+    background: #f2f545;
+    border: 1px solid #1221ec;
     box-sizing: border-box;
     border-radius: 50vw;
     padding: 6px 6px 4px 6px;
@@ -127,10 +134,9 @@
     display: none;
   }
   .str-chat__reaction-list--reverse button {
-    margin-left: 10px;
     border: none;
     background-color: transparent;
-    display: flex;
+    display:inline-flex;
     justify-content: center;
     align-items: center;
   }
@@ -138,6 +144,7 @@
   .str-chat__message-reactions-list-item {
     margin-left: 10px;
     border: none;
+    background: transparent;
     border-radius: 50vw;
     width: 30px;
     height: 30px;
@@ -155,7 +162,7 @@
   }
   
   .str-chat__input-flat str-chat__input-flat--send-button-active button{
-    background-color: #e1ecf4;
+    background-color: #b0b6b9;
     border-radius: 3px;
     border: 1px solid #7aa7c7;
     box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
@@ -199,16 +206,16 @@
 
   .result {
     width: 350px;
-    height: 30px;
-    background-color: #2bddb6;
+    height: 45px;
+    background-color: #656166;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    font-size: 1.2em;
-    color: #000000;
+    font-size: 25px;
+    color: #17e2e9;
   }
   
   /* Additional styles for hover effect */
@@ -217,12 +224,17 @@
     transition: transform 0.3s ease;
   }
 
+  .wintie{
+    font-weight: bolder;
+    color : rgb(29, 236, 22);
+  }
+
   .leave button,
   .str-chat__input-flat-wrapper button{
-    background-color: #c2fbd7;
+    background-color: #15c8d4;
     border-radius: 100px;
-    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
-    color: green;
+    box-shadow: rgba(0, 0, 0, 0.863) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color:#0f0118;
     cursor: pointer;
     display:block;
     font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
@@ -231,11 +243,13 @@
     text-decoration: none;
     transition: all 250ms;
     border: 0;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight:700;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 180px;
+    width: 171px;
+    height: 40px;
   }
   
   .leave button:hover,
