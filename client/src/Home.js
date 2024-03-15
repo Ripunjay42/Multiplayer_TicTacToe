@@ -9,11 +9,6 @@ function Home()
     const handleClick=()=>{
         setisClick(true);
     }
-    // const navigate = useNavigate();
-
-    // const navigatePlay = () => {
-    //   navigate('/App');
-    // };
 
   return (
     <>
@@ -23,7 +18,7 @@ function Home()
         <div className='content'>
             <h1>HOME</h1>
         </div>
-        <div className='hd1'>
+        <div className='play1'>
             <button onClick={handleClick}>Lets Play</button>
         </div>
     </div>

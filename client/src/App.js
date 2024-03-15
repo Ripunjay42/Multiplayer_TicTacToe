@@ -49,14 +49,13 @@ function App({setisClick})
   return (
     <div className="App">
         {isAuth ? (
-          <Chat client={client}>
-            <div className='hd1'>
-              <JoinGame />
-              <div className='lgo'>
-                <button onClick={logOut}> Log Out</button>
+          <>
+            <Chat client={client}>
+              <div className='hd1'>
+                <JoinGame logOut={logOut}  />
               </div>
-            </div>
-          </Chat>
+            </Chat>
+            </> 
       ) : (
         <>
           <div className='Head'> <h1>TIC TAC TOE MULTIPLAYER</h1></div>
