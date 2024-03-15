@@ -2,10 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "build": "yarn install"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
