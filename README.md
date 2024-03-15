@@ -15,7 +15,6 @@ This is a React application that implements a multiplayer Tic Tac Toe game with 
 ## Technologies Used
 
 - **React**: Frontend framework for building the user interface.
-- **Firebase Authentication**: Handles user authentication.
 - **Stream Chat API**: Provides real-time chat functionality.
 - **CSS**: Custom styling for the application.
 - **Webpack**: Bundles the JavaScript files for deployment.
@@ -26,7 +25,6 @@ This is a React application that implements a multiplayer Tic Tac Toe game with 
 ### Prerequisites
 
 - Node.js installed on your local machine.
-- A Firebase project set up for authentication.
 - Stream API account for real-time chat.
 
 ### Installation
@@ -49,8 +47,6 @@ This is a React application that implements a multiplayer Tic Tac Toe game with 
    yarn install
    ```
 
-4. Set up Firebase and Stream API credentials in the appropriate configuration files.
-
 ### Usage
 
 1. Start the development server:
@@ -61,21 +57,3 @@ This is a React application that implements a multiplayer Tic Tac Toe game with 
 
 2. Open your browser and navigate to `http://localhost:3000` to access the application.
 
-## Contributing
-
-Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/improvement`).
-3. Make your changes and commit them (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature/improvement`).
-5. Create a new Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- This project was inspired by the classic Tic Tac Toe game.
-- Special thanks to Firebase and Stream for providing authentication and real-time chat capabilities.
