@@ -5,8 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "nodemon src/index.js",
-    // "build": "yarn install"
+    "start": "nodemon src/index.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
