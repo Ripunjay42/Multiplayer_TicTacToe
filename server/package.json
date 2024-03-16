@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon src/index.js",
-    "build": "yarn install"
+    // "build": "yarn install"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
