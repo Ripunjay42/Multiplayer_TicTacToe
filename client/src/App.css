@@ -68,6 +68,8 @@ body {
   border-radius: 10px;
   width: 280px;
   height: 25px;
+  background-color:#1b1b1b;
+  color:white;
 }
 
 .login button,
@@ -76,7 +78,7 @@ body {
   background-color: #15c8d4;
   border-radius: 100px;
   box-shadow: rgba(0, 0, 0, 0.863) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
-  color:#0f0118;
+  color:#000000;
   cursor: pointer;
   display:block;
   /* font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif; */
