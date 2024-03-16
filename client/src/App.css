@@ -4,10 +4,9 @@ body {
 }
 .background{
   justify-content: flex-start;
-	background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(images/bac.jpg) no-repeat;
+	background: linear-gradient(rgba(0, 0, 0, 0.877),rgba(0, 0, 0, 0.75)),url(images/bac.jpg) no-repeat;
 	background-size: cover;
 	background-position: center;
-	color: #fff;
 }
 .App {
   width: 100vw;

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import App from './App';
 import './Home.css'
 import image from './images/back.gif';
-import icon from './images/mul.png';
+import icon from './images/dev.jpg';
 
 function Home() 
 {
@@ -28,9 +28,7 @@ function Home()
                 <button onClick={handleClick}>Lets Play</button>
             </div>
             <footer className='copy'>
-                <div className='playericon'>
-                    <img width='150px' height='110px' align='center' src={icon} alt="ico"/>
-                </div>
+                <img width='100px' height='100px' align='center' src={icon} alt="ico"/>
                 <p> &copy;by Ripunjay Choudhury </p>
             </footer>
         </div>

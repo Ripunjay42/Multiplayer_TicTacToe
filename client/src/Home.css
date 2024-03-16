@@ -4,10 +4,9 @@ body {
   }
 .background{
   justify-content: flex-start;
-	background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(images/bac.jpg) no-repeat;
+	background: linear-gradient(rgba(0, 0, 0, 0.877),rgba(0, 0, 0, 0.75)),url(images/bac.jpg) no-repeat;
 	background-size: cover;
 	background-position: center;
-	color: #fff;
 }
 .Home {
     width: 100vw;
@@ -21,14 +20,13 @@ body {
     text-align: center;
     font-weight: bolder;
     font-size: 45px;
-    color:cyan;
+    color:rgb(0, 255, 255);
     margin-top: 5%;
     font-style: italic;
     font-family:cursive;
   }
 
-  .gifi,
-  .playericon{
+  .gifi{
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -36,10 +34,7 @@ body {
 
 
   .play1{
-    color: rgb(40, 201, 35);
     display: flex;
-    flex-direction: column;
-    font-size:20px;
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -47,9 +42,9 @@ body {
   }
   
   .play1 button{
-    background-color: #15c8d4;
+    background-color: #1ae0e7;
     border-radius: 100px;
-    box-shadow: rgba(37, 1, 37, 0.863) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    box-shadow: rgba(14, 24, 116, 0.863) 0 -25px 18px -14px inset,rgba(214, 40, 200, 0.952) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
     color: rgb(230, 28, 28);
     cursor: pointer;
     display:block;
@@ -60,15 +55,18 @@ body {
     transition: all 250ms;
     border: 0;
     font-size: 20px;
-    font-weight: bolder;
+    font-weight: 900;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 180px;
+    width: 150px;
+    height: 50px;
+    font-style: italic;
+    font-family:cursive;
   }
   
   .play1 button:hover {
-    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    box-shadow: rgba(0, 0, 0, 0.815) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
     transform: scale(1.05) rotate(-1deg);
   }
 
@@ -78,10 +76,18 @@ body {
     font-size: 15px;
     color: rgb(23, 221, 66);
     position:relative;
+  }
+
+  .copy img{
     margin-top: 10%;
   }
 
-
+.copy p{
+  margin-top: 0%;
+  font-style: italic;
+  font-weight: 400;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
 
   
