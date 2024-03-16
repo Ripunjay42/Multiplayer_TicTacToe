@@ -11,23 +11,31 @@ function Board({ result, setResult }) {
   const { channel } = useChannelStateContext();
   const { client } = useChatContext();
 
-  const chooseSquare = async (square) => {
-    if (turn === player && board[square] === "") {
-      setTurn(player === "X" ? "O" : "X");
+  const chooseSquare = async (square) => 
+  {
+    if(result.state !== "won")
+    {
+        if (turn === player && board[square] === "") 
+        {
+          setTurn(player === "X" ? "O" : "X");
 
-      await channel.sendEvent({
-        type: "game-move",
-        data: { square, player },
-      });
-      setBoard(
-        board.map((val, idx) => {
-          if (idx === square && val === "") {
-            return player;
-          }
-          return val;
-        })
-      );
-    }
+          await channel.sendEvent(
+          {
+            type: "game-move",
+            data: { square, player },
+          });
+          setBoard(
+            board.map((val, idx) => 
+            {
+                if (idx === square && val === "") 
+                {
+                  return player;
+                }
+              return val;
+            })
+            );
+        }
+     }
   };
 
   const checkWin = useCallback(() => {

@@ -59,7 +59,7 @@ function App({setisClick})
             </> 
       ) : (          
           <div className='Ls'>
-              <div className='Head'> <h1>TIC TAC TOE MULTIPLAYER</h1></div>
+              <div className='Head'> <h1>TIC-TAC-TOE Multiplayer</h1></div>
               <SignUp setIsAuth={setIsAuth} />
               <Login setIsAuth={setIsAuth} />
               <div className='back'>
