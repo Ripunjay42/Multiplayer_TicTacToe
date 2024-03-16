@@ -2,16 +2,19 @@ body {
   padding: 0;
   margin: 0;
 }
+.background{
+  justify-content: flex-start;
+	background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(images/bac.jpg) no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+}
 .App {
   width: 100vw;
   height: 100vh;
   display: table;
   justify-content: center;
   align-items: center;
-  background-color: #0f0118;
-  background: linear-gradient(rgba(0, 0, 0, 0.459),rgba(0, 0, 0, 0.562)),url(images/bac.jpg) no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .hd1{
@@ -41,8 +44,8 @@ body {
 }
 
 .back{
-  margin-top: 3%;
-  margin-right: 225px ;
+  margin-top: 2%;
+  margin-right: 205px ;
 }
 
 .login,
@@ -60,8 +63,8 @@ body {
   padding: 5px;
   border: 4px solid #dc5be0;
   border-radius: 10px;
-  width: 300px;
-  height: 30px;
+  width: 280px;
+  height: 25px;
 }
 
 .login button,

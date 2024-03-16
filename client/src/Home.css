@@ -2,17 +2,19 @@ body {
     padding: 0;
     margin: 0;
   }
+.background{
+  justify-content: flex-start;
+	background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(images/bac.jpg) no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+}
 .Home {
     width: 100vw;
     height: 100vh;
     display:table;
     justify-content: center;
     align-items: center;
-    /* background-color: #000000; */
-    background: linear-gradient(rgba(0, 0, 0, 0.459),rgba(0, 0, 0, 0.562)),url(images/bac.jpg) no-repeat;
-    background-position: center;
-    background-size: cover;
-    
   }
 
   .Home h1{
@@ -74,7 +76,7 @@ body {
     font-size: 15px;
     color: rgb(23, 221, 66);
     position:relative;
-    margin-top: 5%;
+    margin-top: 10%;
   }
 
 
