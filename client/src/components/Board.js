@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useChannelStateContext, useChatContext } from "stream-chat-react";
 import Square from "./Square";
 import { Patterns } from "../WinningPatterns";
-function Board({result, setResult}) {
+
+function Board({ result, setResult }) {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
   const [player, setPlayer] = useState("X");
   const [turn, setTurn] = useState("X");
@@ -10,10 +11,6 @@ function Board({result, setResult}) {
   const { channel } = useChannelStateContext();
   const { client } = useChatContext();
 
-  useEffect(() => {
-    checkIfTie();
-    checkWin();
-  }, [board]);
   const chooseSquare = async (square) => {
     if (turn === player && board[square] === "") {
       setTurn(player === "X" ? "O" : "X");
@@ -33,7 +30,7 @@ function Board({result, setResult}) {
     }
   };
 
-  const checkWin = () => {
+  const checkWin = useCallback(() => {
     Patterns.forEach((currPattern) => {
       const firstPlayer = board[currPattern[0]];
       if (firstPlayer === "") return;
@@ -43,14 +40,13 @@ function Board({result, setResult}) {
           foundWinningPattern = false;
         }
       });
-
       if (foundWinningPattern) {
         setResult({ winner: board[currPattern[0]], state: "won" });
       }
     });
-  };
+  }, [board, setResult]);
 
-  const checkIfTie = () => {
+  const checkIfTie = useCallback(() => {
     let filled = true;
     board.forEach((square) => {
       if (square === "") {
@@ -61,7 +57,12 @@ function Board({result, setResult}) {
     if (filled) {
       setResult({ winner: "none", state: "tie" });
     }
-  };
+  }, [board, setResult]);
+
+  useEffect(() => {
+    checkIfTie();
+    checkWin();
+  }, [board, checkIfTie, checkWin]);
 
   channel.on((event) => {
     if (event.type === "game-move" && event.user.id !== client.userID) {
@@ -82,45 +83,21 @@ function Board({result, setResult}) {
   return (
     <div className="board">
       <div className="row">
-        <Square val={board[0]}
-          chooseSquare={() => {chooseSquare(0);}}
-        />
-        <Square
-          val={board[1]}
-          chooseSquare={() => {chooseSquare(1);}}
-        />
-        <Square
-          val={board[2]}
-          chooseSquare={() => {chooseSquare(2);}}
-        />
+        <Square val={board[0]} chooseSquare={() => chooseSquare(0)} />
+        <Square val={board[1]} chooseSquare={() => chooseSquare(1)} />
+        <Square val={board[2]} chooseSquare={() => chooseSquare(2)} />
       </div>
 
       <div className="row">
-        <Square val={board[3]}
-          chooseSquare={() => {chooseSquare(3);}}
-        />
-        <Square
-          val={board[4]}
-          chooseSquare={() => {chooseSquare(4);}}
-        />
-        <Square
-          val={board[5]}
-          chooseSquare={() => {chooseSquare(5);}}
-        />
+        <Square val={board[3]} chooseSquare={() => chooseSquare(3)} />
+        <Square val={board[4]} chooseSquare={() => chooseSquare(4)} />
+        <Square val={board[5]} chooseSquare={() => chooseSquare(5)} />
       </div>
-      
+
       <div className="row">
-        <Square val={board[6]}
-          chooseSquare={() => {chooseSquare(6);}}
-        />
-        <Square
-          val={board[7]}
-          chooseSquare={() => {chooseSquare(7);}}
-        />
-        <Square
-          val={board[8]}
-          chooseSquare={() => {chooseSquare(8);}}
-        />
+        <Square val={board[6]} chooseSquare={() => chooseSquare(6)} />
+        <Square val={board[7]} chooseSquare={() => chooseSquare(7)} />
+        <Square val={board[8]} chooseSquare={() => chooseSquare(8)} />
       </div>
     </div>
   );

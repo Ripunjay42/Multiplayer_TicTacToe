@@ -21,14 +21,14 @@ function Home()
             <h1>TIC-TAC-TOE</h1>
         </div>
         <div className='gifi'>
-            <img  width='390px' height='390px' src={image}/>
+            <img  width='390px' height='390px' src={image} alt="gif"/>
         </div>
         <div className='play1'>
             <button onClick={handleClick}>Lets Play</button>
         </div>
         <footer className='copy'>
             <div className='playericon'>
-                <img width='150px' height='110px' align='center' src={icon}/>
+                <img width='150px' height='110px' align='center' src={icon} alt="ico"/>
             </div>
             <p> &copy;by Ripunjay Choudhury </p>
         </footer>
