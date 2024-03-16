@@ -8,7 +8,7 @@ function Login({ setIsAuth }) {
 
   const cookies = new Cookies();
   const login = () => {
-    Axios.post("https://tictactoe-multiplayer-g5yn.onrender.com/login", {
+    Axios.post("https://tic-tac-toe-server-six.vercel.app/login", {
       username,
       password,
     }).then((res) => {

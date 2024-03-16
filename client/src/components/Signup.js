@@ -7,7 +7,7 @@ function SignUp({ setIsAuth }) {
   const [user, setUser] = useState(null);
 
   const signUp = () => {
-    Axios.post("https://tictactoe-multiplayer-g5yn.onrender.com/signup", user).then((res) => {
+    Axios.post("https://tic-tac-toe-server-six.vercel.app/signup", user).then((res) => {
       const { token, userId, firstName, lastName, username, hashedPassword } =
         res.data;
       if(token)
