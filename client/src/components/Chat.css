@@ -85,9 +85,10 @@
   .str-chat__input-flat {
     width: 345px;
     height: 85px;
-    background-color: rgb(17, 44, 1);
+    background-color: transparent;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
+    margin-bottom: 4%;
   }
   
   .str-chat__input-flat-wrapper {
@@ -108,9 +109,16 @@
     /* box-shadow: 0 0 0 3px rgb(6, 27, 214); */
     padding: 10px;
     font-size: 15px;
-    background-color:#242222;
+    background-color:transparent;
     color:rgb(255, 255, 255);
   }
+
+  .str-chat__input-flat-wrapper textarea:focus{
+    border: 2px solid #41aae7;
+    outline-offset: 0px;
+    outline: none;
+    background-color:transparent;
+}
   
   .str-chat__message-simple__actions {
     width: 100%;
@@ -235,10 +243,10 @@
   }
 
   .str-chat__input-flat-wrapper button{
-  background-color: #15c8d4;
-  border-radius: 100px;
-  box-shadow: rgba(0, 0, 0, 0.863) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
-  color:#0f0118;
+    background-color:transparent;
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.863) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color:#1fc9e7;
   cursor: pointer;
   display:block;
   padding: 7px 20px;
@@ -263,10 +271,10 @@
   }
 
   .playagain button{
-    background-color: #15c8d4;
+    background-color:transparent;
     border-radius: 100px;
     box-shadow: rgba(0, 0, 0, 0.863) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
-    color:#0f0118;
+    color:#1ac6e4;
     cursor: pointer;
     display:block;
     /* font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif; */

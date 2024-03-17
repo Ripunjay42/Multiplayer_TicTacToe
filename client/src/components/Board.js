@@ -115,7 +115,7 @@ function Board({ result, setResult, setChannel}) {
   return (
     <>
     <div className="playagain">
-    <button className="playagain" onClick={reset}>play again</button>
+    <button className="playagain" onClick={reset}>Play Again</button>
     <button
             onClick={async () => {
               await channel.stopWatching();
