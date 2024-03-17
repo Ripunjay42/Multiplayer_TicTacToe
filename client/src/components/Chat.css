@@ -104,11 +104,12 @@
     height: 30px;
     border: none;
     border-radius: 6px;
-    box-shadow: 0 0 0 3px rgb(6, 27, 214);
+    border: 2px solid #41aae7;
+    /* box-shadow: 0 0 0 3px rgb(6, 27, 214); */
     padding: 10px;
     font-size: 15px;
-    background-color:#1b1b1b;
-    color:white;
+    background-color:#242222;
+    color:rgb(255, 255, 255);
   }
   
   .str-chat__message-simple__actions {
