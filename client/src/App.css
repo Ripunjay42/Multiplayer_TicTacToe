@@ -72,6 +72,15 @@ body {
   color:rgb(63, 221, 42);
 }
 
+.login input:focus,
+.signUp input:focus,
+.joinGame input:focus{
+    border: 2px solid #41aae7;
+    outline-offset: 0px;
+    outline: none;
+    background-color:transparent;
+}
+
 .login button,
 .signUp button,
 .back button{
