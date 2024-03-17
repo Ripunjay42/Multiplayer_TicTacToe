@@ -112,19 +112,18 @@ function Board({ result, setResult, setChannel}) {
     }
   }
 
+  const leaved =async () => {
+    clapon.pause();
+    await channel.stopWatching();
+    setChannel(null);
+    clapon.pause();
+  }
+
   return (
     <>
     <div className="playagain">
     <button className="playagain" onClick={reset}>Play Again</button>
-    <button
-            onClick={async () => {
-              await channel.stopWatching();
-              setChannel(null);
-            }}
-          >
-            {" "}
-            Leave Game
-          </button>
+    <button onClick={leaved}>Leave Game</button>
     </div>
     <div className="board">
       <div className="row">

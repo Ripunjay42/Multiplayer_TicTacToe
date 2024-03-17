@@ -7,7 +7,6 @@ body {
 	background: linear-gradient(rgba(0, 0, 0, 0.877),rgba(0, 0, 0, 0.75)),url(images/bac.jpg) no-repeat;
 	background-size: cover;
 	background-position: center;
-  background-attachment: fixed;
 }
 .Home {
     width: 100vw;
