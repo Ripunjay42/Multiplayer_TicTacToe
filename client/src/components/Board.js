@@ -2,14 +2,22 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useChannelStateContext, useChatContext } from "stream-chat-react";
 import Square from "./Square";
 import { Patterns } from "../WinningPatterns";
+import clap from "../images/clap.wav"
 
-function Board({ result, setResult }) {
+function Board({ result, setResult, setChannel}) {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
   const [player, setPlayer] = useState("X");
   const [turn, setTurn] = useState("X");
 
   const { channel } = useChannelStateContext();
   const { client } = useChatContext();
+
+  const clapon = new Audio(clap);
+
+  if(result.state === "won")
+  {
+      clapon.play();
+  }
 
   const chooseSquare = async (square) => 
   {
@@ -88,7 +96,36 @@ function Board({ result, setResult }) {
     }
   });
 
+  function reset() 
+  {
+    if(result.state ==="none")
+    {
+      alert("complete the game first")
+    }
+    else
+    {
+      setBoard(["", "", "", "", "", "", "", "", ""]);
+      setPlayer("X");
+      setTurn("X");
+      setResult({ winner: "none", state: "none" });
+      clapon.pause();
+    }
+  }
+
   return (
+    <>
+    <div className="playagain">
+    <button className="playagain" onClick={reset}>play again</button>
+    <button
+            onClick={async () => {
+              await channel.stopWatching();
+              setChannel(null);
+            }}
+          >
+            {" "}
+            Leave Game
+          </button>
+    </div>
     <div className="board">
       <div className="row">
         <Square val={board[0]} chooseSquare={() => chooseSquare(0)} />
@@ -108,6 +145,7 @@ function Board({ result, setResult }) {
         <Square val={board[8]} chooseSquare={() => chooseSquare(8)} />
       </div>
     </div>
+    </>
   );
 }
 
