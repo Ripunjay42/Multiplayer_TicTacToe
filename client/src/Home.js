@@ -22,7 +22,7 @@ function Home()
                 <h1>TIC-TAC-TOE</h1>
             </div>
             <div className='gifi'>
-                <img  width='350px' height='350px' src={image} alt="gif"/>
+                <img  width='340px' height='340px' src={image} alt="gif"/>
             </div>
             <div className='play1'>
                 <button onClick={handleClick}>Lets Play</button>
