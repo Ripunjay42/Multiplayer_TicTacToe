@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useChannelStateContext, useChatContext } from "stream-chat-react";
 import Square from "./Square";
 import { Patterns } from "../WinningPatterns";
-import clap from "../images/clap.wav"
+import clap from "../audio/clap.wav"
 
 function Board({ result, setResult, setChannel}) {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);

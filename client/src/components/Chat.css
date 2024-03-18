@@ -1,3 +1,11 @@
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden; /* Disable horizontal scrolling */
+  overflow-y: auto;   /* Enable vertical scrolling */
+  scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+  scrollbar-width: 3px;
+}
 .tic_ch{
     display:flex;
     flex-direction:column;
@@ -28,29 +36,30 @@
 
 
   .str-chat__list {
-    background-color: rgb(68, 69, 70);
+    background-color:transparent;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 370px;
     width: 345px;
     overflow: hidden;
     overflow-y: scroll;
+    border: 1px solid #41aae7;
   }
   
   .str-chat__list ul {
     list-style-type: none;
-    margin: 2px;
-    padding: 4px;
     font-family: Arial, Helvetica, sans-serif;
+    margin-right: 8%;
+    margin-top: 10%;
   }
   .str-chat__list li {
     list-style-type: none;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(39, 67, 75);
     border-radius: 6px;
     margin-top:5px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
   }
   
   .str-chat__list .str-chat__message-simple-status {
@@ -101,7 +110,7 @@
   
   .str-chat__input-flat-wrapper textarea {
     resize: none;
-    width: 320px;
+    width: 325px;
     height: 30px;
     border: none;
     border-radius: 6px;
@@ -240,7 +249,8 @@
 
   .wintie{
     font-weight: bolder;
-    color : rgb(29, 236, 22);
+    color : cyan;
+    margin-left:10px;
   }
 
   .str-chat__input-flat-wrapper button{
