@@ -37,6 +37,13 @@ body {
 
   .gifi img{
      border: 1px solid rgb(0, 255, 255);
+     box-shadow:10px 10px 10px 10px black;
+     transition: 0.8s;
+  }
+
+  .gifi img:hover{
+    transform: scale(1.02);
+    box-shadow: rgb(0, 255, 255) 0px 5px 15px;
   }
 
   .play1{
@@ -87,10 +94,11 @@ body {
 
   .copy img{
     margin-top: 10%;
+    box-shadow: rgb(0, 255, 255) 0.5px 1px 4px;
   }
 
 .copy p{
-  margin-top: 0%;
+  margin-top: 20px;
   font-style: italic;
   font-weight: 400;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
