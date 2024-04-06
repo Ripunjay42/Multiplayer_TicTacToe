@@ -24,9 +24,9 @@ body {
     font-weight: bolder;
     font-size: 45px;
     color:rgb(0, 255, 255);
+    letter-spacing: 3px;
     margin-top: 5%;
-    font-style: italic;
-    font-family:cursive;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
   .gifi{
