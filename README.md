@@ -60,3 +60,8 @@ This is a React application that implements a multiplayer Tic Tac Toe game with 
 
 2. Open your browser and navigate to `http://localhost:3000` to access the application.
 
+#EXAMPLE:
+
+<h1 align="center">Screenshot</h1>
+<p align="center"> <img width=100% height=100% src="https://i.ibb.co/1dr5pxf/Screenshot-2024-08-17-043400.png" alt="ripunjay42" /> </p>
+
