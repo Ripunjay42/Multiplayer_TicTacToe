@@ -48,28 +48,38 @@ app.post('/signup', async (req, res) => {
 app.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
-    const { users } = await serverClient.queryUsers({ name: username });
-    if (users.length === 0) return res.json({ message: "User not found" });
 
-    const token = serverClient.createToken(users[0].id);
-    const passwordMatch = await bcrypt.compare(
-      password,
-      users[0].hashedPassword
-    );
+    // Query users by username
+    const { users } = await serverClient.queryUsers({ username });
 
-    if (passwordMatch) {
-      res.json({
-        token,
-        firstName: users[0].firstName,
-        lastName: users[0].lastName,
-        username,
-        userId: users[0].id,
-      });
+    // Check if user exists
+    if (users.length === 0) {
+      return res.status(404).json({ message: "User not found" });
     }
+
+    // Compare the provided password with the stored hashed password
+    const passwordMatch = await bcrypt.compare(password, users[0].hashedPassword);
+
+    if (!passwordMatch) {
+      return res.status(401).json({ message: "Incorrect password" });
+    }
+
+    // Generate a token for the user
+    const token = serverClient.createToken(users[0].id);
+
+    // Send a response with user details and token
+    res.status(200).json({
+      token,
+      firstName: users[0].firstName,
+      lastName: users[0].lastName,
+      username: users[0].username,
+      userId: users[0].id,
+    });
   } catch (error) {
-    res.json(error);
+    res.status(500).json({ message: "Internal server error", error });
   }
 });
+
 
 app.listen(3001, () => {
   console.log("Server is running on port 3001");
