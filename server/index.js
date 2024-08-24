@@ -78,6 +78,16 @@ app.post("/login", async (req, res) => {
 });
 
 
+app.get('/users', async (req, res) => {
+  try {
+    const { users } = await serverClient.queryUsers();
+    res.status(200).json({ users });
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error', error });
+  }
+});
+
+
 app.listen(3001, () => {
   console.log("Server is running on port 3001");
 });
