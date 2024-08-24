@@ -13,8 +13,8 @@ const api_secret =
 const serverClient = StreamChat.getInstance(api_key, api_secret);
 
 async function isUsernameTaken(username) {
-  const response = await serverClient.queryUsers({ username });
-  return response.users.length > 0;
+  const { users } = await serverClient.queryUsers({ username });
+  return users.length > 0;
 }
 
 app.post('/signup', async (req, res) => {
@@ -45,29 +45,26 @@ app.post('/signup', async (req, res) => {
   }
 });
 
+
+
 app.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    // Query users by username
     const { users } = await serverClient.queryUsers({ username });
 
-    // Check if user exists
     if (users.length === 0) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // Compare the provided password with the stored hashed password
     const passwordMatch = await bcrypt.compare(password, users[0].hashedPassword);
 
     if (!passwordMatch) {
       return res.status(401).json({ message: "Incorrect password" });
     }
 
-    // Generate a token for the user
     const token = serverClient.createToken(users[0].id);
 
-    // Send a response with user details and token
     res.status(200).json({
       token,
       firstName: users[0].firstName,
