@@ -5,7 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcrypt";
 const app = express();
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 const api_key = "p8k4r8ua5w5y";
 const api_secret =
