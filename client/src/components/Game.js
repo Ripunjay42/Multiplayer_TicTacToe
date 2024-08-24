@@ -22,7 +22,7 @@ function Game({ channel, setChannel }) {
   });
 
   if (!playersJoined) {
-    return <h1> Waiting for other player to join...</h1>;
+    return <span> Waiting for other player to join...</span>;
   }
 
 
@@ -40,7 +40,8 @@ function Game({ channel, setChannel }) {
     <div className="tic_ch">
        {result.state === "won" && <Confetti width={winsize.width} height={winsize.height}/>}  
       <div className="gameContainer">
-        <h1>TIC TAC TOE </h1>
+        <span>TIC TAC TOE </span>
+      
         <Board result={result} setResult={setResult} setChannel={setChannel} />
         <div className="result">
             <p>Result :</p>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Cookies from "universal-cookie";
 
@@ -9,7 +9,14 @@ function Login({ setIsAuth }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const cookies = new Cookies();
-  
+
+  useEffect(() => {
+    if (errorMessage) {
+      const timer = setTimeout(() => setErrorMessage(""), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage]);
+
   const login = (e) => {
     e.preventDefault();
 
@@ -79,7 +86,7 @@ function Login({ setIsAuth }) {
           Logging in<span className="dots"></span>
         </div>
       )}
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
+      {errorMessage && <div className="error-message-box">{errorMessage}</div>}
     </form>
   );
 }

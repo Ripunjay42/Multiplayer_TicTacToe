@@ -8,8 +8,9 @@ body {
 .tic_ch{
     display:flex;
     flex-direction:column;
-    margin-top:12%;
+    margin-top:0%;
   }
+
 .gameContainer{
     display:flex;
     flex-direction:column;
@@ -306,6 +307,7 @@ body {
     font-family:cursive;
     margin-left: 27px;
     margin-bottom: 10px;
+    margin-top: 2%;
   }
 
   .playagain button:hover{

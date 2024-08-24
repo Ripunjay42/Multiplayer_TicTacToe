@@ -19,10 +19,10 @@ function Home()
     <div className='background'>
         <div className='Home'>
             <div className='content'>
-                <h1 className='animated-text'>
-                    <span  style={{color: '' }}>TIC TAC TOE</span><br/>
-                    <span style={{fontSize: '25px'}}>MULTIPLAYER</span>
-                </h1>
+                <div className='animated'>
+                    <span  style={{color: '' }}>TIC-TAC-TOE</span>
+                    <span style={{fontSize: '32px'}}>MULTIPLAYER</span>
+                </div>
             </div>
             <div className='gifi'>
                 <img width='340px' height='340px' src={image} alt="gif"/>

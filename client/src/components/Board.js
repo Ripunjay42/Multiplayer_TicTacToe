@@ -122,8 +122,8 @@ function Board({ result, setResult, setChannel}) {
   return (
     <>
     <div className="playagain">
-    <button className="playagain" onClick={reset}>Play Again</button>
-    <button onClick={leaved}>Leave Game</button>
+      <button className="playagain" onClick={reset}>Play Again</button>
+      <button onClick={leaved}>Leave Game</button>
     </div>
     <div className="board">
       <div className="row">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Cookies from "universal-cookie";
 
@@ -12,6 +12,13 @@ function SignUp({ setIsAuth }) {
   });
   const [isSigningUp, setIsSigningUp] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    if (errorMessage) {
+      const timer = setTimeout(() => setErrorMessage(""), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage]);
 
   const signUp = (e) => {
     e.preventDefault();
@@ -34,7 +41,7 @@ function SignUp({ setIsAuth }) {
         }
         setIsSigningUp(false);
       })
-      .catch(error => {
+      .catch((error) => {
         setIsSigningUp(false);
         if (error.response && error.response.status === 400) {
           setErrorMessage(error.response.data.message);
@@ -76,7 +83,7 @@ function SignUp({ setIsAuth }) {
         Sign Up
       </button>
       {isSigningUp && <div className="signing-up-message">Signing up<span className="dots"></span></div>}
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
+      {errorMessage && <div className="error-message-box">{errorMessage}</div>}
     </form>
   );
 }
