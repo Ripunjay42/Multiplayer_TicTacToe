@@ -5,8 +5,28 @@ import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcrypt";
 const app = express();
 
-app.use(cors());
-// app.use(cors({ origin: "http://localhost:3000" }));
+const allowedOrigins = [
+  "https://tictactoe-multiplayer-silk.vercel.app", // Production domain
+  "http://localhost:3000" // Local development
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      // Allow requests with no origin (like mobile apps or Postman)
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
+
+
+// app.use(cors());
 app.use(express.json());
 const api_key = "p8k4r8ua5w5y";
 const api_secret =
