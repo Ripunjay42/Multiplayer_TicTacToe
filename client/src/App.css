@@ -210,3 +210,46 @@ h4 {
   cursor: pointer;
 } */
 
+
+.signing-up-message {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #348be7;
+}
+
+.dots::after {
+  content: '';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%, 10% {
+    content: '.';
+  }
+  20%, 40% {
+    content: '..';
+  }
+  50%, 70% {
+    content: '...';
+  }
+  80%, 100% {
+    content: '....';
+  }
+}
+
+.logging-in-message {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #4698f0;
+}
+
+.dots::after {
+  content: '';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}

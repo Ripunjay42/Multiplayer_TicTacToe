@@ -12,15 +12,36 @@ const api_secret =
   "bke93fcs55m29vg3ca4uarkdx9m8xmbthwfugb2eahxhauvb5zxysddn2jmyddw5";
 const serverClient = StreamChat.getInstance(api_key, api_secret);
 
-app.post("/signup", async (req, res) => {
+async function isUsernameTaken(username) {
+  const response = await serverClient.queryUsers({ username });
+  return response.users.length > 0;
+}
+
+app.post('/signup', async (req, res) => {
   try {
     const { firstName, lastName, username, password } = req.body;
+
+    const usernameExists = await isUsernameTaken(username);
+    if (usernameExists) {
+      return res.status(400).json({ message: 'Username already exists' });
+    }
+
     const userId = uuidv4();
     const hashedPassword = await bcrypt.hash(password, 10);
     const token = serverClient.createToken(userId);
-    res.json({ token, userId, firstName, lastName, username, hashedPassword });
+
+    await serverClient.upsertUser({
+      id: userId,
+      username,
+      first_name: firstName,
+      last_name: lastName,
+      hashedPassword,
+    });
+
+    res.status(201).json({ token, userId, firstName, lastName, username });
+
   } catch (error) {
-    res.json(error);
+    res.status(500).json({ message: 'Internal server error', error });
   }
 });
 
