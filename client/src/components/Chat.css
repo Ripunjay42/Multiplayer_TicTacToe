@@ -52,7 +52,7 @@ body {
   
   .str-chat__list ul {
     list-style-type: none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-right: 8%;
     margin-top: 10%;
   }
@@ -75,8 +75,8 @@ body {
   }
   
   .str-chat__message-text-inner {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding-left: 5px;
     color: #27c4b6;
     font-weight: bolder;
@@ -239,11 +239,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
-    font-size: 25px;
+    font-size: 23px;
     color:cyan;
     font-style: italic;
-    font-family:cursive;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
   
   /* Additional styles for hover effect */
@@ -270,15 +269,15 @@ body {
   text-decoration: none;
   transition: all 250ms;
   border: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight:900;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 150px;
+  width: 153px;
   height: 38px;
   font-style: italic;
-  font-family:cursive;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
   
   .str-chat__input-flat-wrapper button:hover {
@@ -299,15 +298,15 @@ body {
     text-decoration: none;
     transition: all 250ms;
     border: 0;
-    font-size: 16px;
+    font-size: 14px;
     font-weight:900;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 132px;
+    width: 137px;
     height: 38px;
     font-style: italic;
-    font-family:cursive;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 27px;
     margin-bottom: 10px;
     margin-top: 2%;

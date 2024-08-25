@@ -23,10 +23,10 @@ body {
   .animated{
     text-align: center;
     font-weight: bolder;
-    font-size: 45px;
+    font-size: 43px;
     color:cyan;
     font-style: italic;
-    font-family:cursive;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column ;
   }
@@ -70,7 +70,7 @@ body {
     text-decoration: none;
     transition: all 250ms;
     border: 0;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 900;
     user-select: none;
     -webkit-user-select: none;
@@ -78,7 +78,7 @@ body {
     width: 150px;
     height: 50px;
     font-style: italic;
-    font-family:cursive;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;;
   }
   
   .play1 button:hover {

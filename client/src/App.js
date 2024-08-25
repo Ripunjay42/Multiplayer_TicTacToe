@@ -6,7 +6,7 @@ import { Chat } from "stream-chat-react";
 import Cookies from "universal-cookie";
 import { useState } from "react";
 import JoinGame from "./components/JoinGame";
-// import InviteListener from "./components/InviteListener";
+import { motion } from "framer-motion";
 
 function App({setisClick}) 
 {
@@ -60,7 +60,16 @@ function App({setisClick})
             </> 
       ) : (          
           <div className='Ls'>
-              <div className='Head'> <span>TIC-TAC-TOE</span></div>
+              <div className='Head'> 
+              <motion.span
+                style={{ color: "" }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                TIC-TAC-TOE
+              </motion.span>
+              </div>
               <SignUp setIsAuth={setIsAuth} />
               <Login setIsAuth={setIsAuth} />
               <div className='back'>

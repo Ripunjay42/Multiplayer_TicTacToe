@@ -4,7 +4,7 @@ import { Window, MessageList, MessageInput } from "stream-chat-react";
 import "./Chat.css";
 import Confetti from "react-confetti";
 
-function Game({ channel, setChannel, logOut }) {
+function Game({ channel, setChannel, leave}) {
   const [playersJoined, setPlayersJoined] = useState(
     channel.state.watcher_count === 2
   );
@@ -24,14 +24,17 @@ function Game({ channel, setChannel, logOut }) {
     setPlayersJoined(event.watcher_count === 2);
   });
 
+ 
   if (!playersJoined) {
     return (
       <div className="waiting">
         <span>Waiting for other player to join...</span>
-        <button onClick={logOut}>Log Out</button>
+        <button onClick={leave}>Back</button>
       </div>
     );
   }
+
+ 
 
   let elementStyle = { color: "red" };
   if (result.winner === "O") {

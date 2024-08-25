@@ -7,7 +7,7 @@ function JoinGame({ logOut }) {
   const [rivalUsername, setRivalUsername] = useState("");
   const [channel, setChannel] = useState(null);
   const [usersList, setUsersList] = useState([]);
-  const [showUsers, setShowUsers] = useState(false);
+  const [showUsers, setShowUsers] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const { client } = useChatContext();
 
@@ -48,26 +48,22 @@ function JoinGame({ logOut }) {
         members: [client.userID, rivalUser.id],
       });
 
-      console.log("Channel created:", newChannel);
-
-      console.log("Watching channel");
       await newChannel.watch();
-
-      console.log("Sending game invitation");
-      await newChannel.sendMessage({
-        text: "Game invitation",
-        type: "regular",
-        custom: {
-          type: "game_invite",
-          invitedBy: client.user.id,
-        },
-      });
-
-      console.log("Setting channel state");
       setChannel(newChannel);
     } catch (error) {
       console.error("Error in createChannel:", error);
       setErrorMessage(`An error occurred while creating the channel: ${error.message}`);
+    }
+  };
+
+  const leave = async () => {
+    try {
+      await channel.stopWatching();
+      channel.removeMembers([client.userID]);
+      channel.state.watcher_count = 0;
+      setChannel(null);
+    } catch (error) {
+      console.error("Error leaving channel:", error);
     }
   };
 
@@ -103,11 +99,19 @@ function JoinGame({ logOut }) {
     }
   };
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      fetchUsers();
+    }, 1000);
+
+    return () => clearInterval(intervalId); // Cleanup interval on unmount
+  }, []);
+
   return (
     <>
       {channel ? (
         <Channel channel={channel} Input={CustomInput}>
-          <Game channel={channel} setChannel={setChannel} logOut={logOut} />
+          <Game channel={channel} setChannel={setChannel} leave={leave} />
         </Channel>
       ) : (
         <div className="joinGame">
@@ -123,13 +127,10 @@ function JoinGame({ logOut }) {
                 required
               />
               <button type="submit">Join Game</button>
-              <button type="button" onClick={fetchUsers}>
-                List Users
-              </button>
               <button onClick={logOut}>Log Out</button>
             </form>
           </div>
-            {errorMessage && <div className="error-message-box" style={{fontSize : "17px", marginTop : "3%"}}>{errorMessage}</div>}
+          {errorMessage && <div className="error-message-box" style={{fontSize : "17px", marginTop : "3%"}}>{errorMessage}</div>}
           {showUsers && (
             <div className="users-list-container">
               <h3 className="users-list-header">Users</h3>

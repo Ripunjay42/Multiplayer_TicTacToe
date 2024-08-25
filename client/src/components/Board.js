@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useChannelStateContext, useChatContext } from "stream-chat-react";
 import Square from "./Square";
 import { Patterns } from "../WinningPatterns";
-import clap from "../audio/clap.wav"
+import clapon from "../audio/clap.wav"
 
 function Board({ result, setResult, setChannel}) {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
@@ -12,11 +12,11 @@ function Board({ result, setResult, setChannel}) {
   const { channel } = useChannelStateContext();
   const { client } = useChatContext();
 
-  const clapon = new Audio(clap);
+  const clap = new Audio(clapon);
 
   if(result.state === "won")
   {
-      clapon.play();
+      clap.play();
   }
 
   const chooseSquare = async (square) => 
@@ -96,8 +96,9 @@ function Board({ result, setResult, setChannel}) {
     }
   });
 
-  function reset() 
+  const reset= async()=> 
   {
+    clap.pause();
     if(result.state ==="none")
     {
       alert("complete the game first")
@@ -108,16 +109,48 @@ function Board({ result, setResult, setChannel}) {
       setPlayer("X");
       setTurn("X");
       setResult({ winner: "none", state: "none" });
-      clapon.pause();
+      
     }
   }
 
-  const leaved =async () => {
-    clapon.pause();
-    await channel.stopWatching();
-    setChannel(null);
-    clapon.pause();
-  }
+  const leaved = async () => {
+    clap.pause();
+    try {
+      // Send a "player-left" event
+      await channel.sendEvent({
+        type: 'player-left',
+        data: { userId: client.userID }
+      });
+      
+      await channel.stopWatching();
+      channel.removeMembers( [client.userID]);
+      channel.state.watcher_count = 0;
+      setChannel(null);
+    } catch (error) {
+      console.error("Error leaving game:", error);
+    }
+  };
+
+
+  useEffect(() => {
+    const handlePlayerLeft = (event) => {
+      if (event.type === 'player-left' && event.user.id !== client.userID) {
+        clap.pause();
+        alert("The other player has left the game.");
+        channel.stopWatching();
+        channel.removeMembers( [client.userID]);
+        channel.state.watcher_count = 0;
+        setChannel(null); 
+      }
+    };
+  
+    channel.on('player-left', handlePlayerLeft);
+  
+    // Clean up the event listener when the component unmounts
+    return () => {
+      channel.off('player-left', handlePlayerLeft);
+    };
+  }, [channel, client.userID, setChannel]);
 
   return (
     <>
