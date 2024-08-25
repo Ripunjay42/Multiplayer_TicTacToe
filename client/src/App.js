@@ -6,6 +6,7 @@ import { Chat } from "stream-chat-react";
 import Cookies from "universal-cookie";
 import { useState } from "react";
 import JoinGame from "./components/JoinGame";
+// import InviteListener from "./components/InviteListener";
 
 function App({setisClick}) 
 {

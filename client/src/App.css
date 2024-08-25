@@ -294,6 +294,19 @@ button:disabled {
   /* Add any other styles for game controls */
 }
 
+.game-controls h5{
+  padding: 10px;
+  margin-top: 8px;
+  width: 80%;
+  background: rgba(255, 0, 0, 0.2); 
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  align-items: center;
+}
+
 .users-list-container {
   width: 100%;
   margin-top: 50px;

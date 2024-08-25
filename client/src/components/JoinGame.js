@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useChatContext, Channel } from "stream-chat-react";
 import Game from "./Game";
 import CustomInput from "./CustomInput";
@@ -8,48 +8,66 @@ function JoinGame({ logOut }) {
   const [channel, setChannel] = useState(null);
   const [usersList, setUsersList] = useState([]);
   const [showUsers, setShowUsers] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const { client } = useChatContext();
-  // const [wait, setWait] = useState(false);
+
+  useEffect(() => {
+    if (errorMessage) {
+      const timer = setTimeout(() => setErrorMessage(""), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage]);
 
   const createChannel = async (e) => {
-    e.preventDefault(); // Prevent form submission from refreshing the page
+    e.preventDefault();
 
     try {
+      console.log("Querying for user:", rivalUsername);
       const response = await client.queryUsers({ name: { $eq: rivalUsername } });
+      console.log("Query response:", response);
 
       if (response?.users?.length === 0) {
-        alert("User not found");
+        setErrorMessage("User not found");
         return;
       }
 
-      if (response.users[0].id === client.userID) {
-        alert("Please provide a different user ID");
+      const rivalUser = response.users[0];
+
+      if (rivalUser.id === client.userID) {
+        setErrorMessage("Please provide a different user ID");
         return;
       }
 
-      if (!response.users[0].online) {
-        alert("User is offline");
+      if (!rivalUser.online) {
+        setErrorMessage("User is offline");
         return;
       }
 
+      console.log("Creating channel with members:", client.userID, rivalUser.id);
       const newChannel = await client.channel("messaging", {
-        members: [client.userID, response.users[0].id],
+        members: [client.userID, rivalUser.id],
       });
 
+      console.log("Channel created:", newChannel);
+
+      console.log("Watching channel");
       await newChannel.watch();
+
+      console.log("Sending game invitation");
+      await newChannel.sendMessage({
+        text: "Game invitation",
+        type: "regular",
+        custom: {
+          type: "game_invite",
+          invitedBy: client.user.id,
+        },
+      });
+
+      console.log("Setting channel state");
       setChannel(newChannel);
-
-      // Update the users list to set the current user's status to "waiting"
-      setUsersList((prevUsersList) =>
-        prevUsersList.map((user) =>
-          user.id === client.userID ? { ...user, status: "waiting" } : user
-        )
-      );
-
-
     } catch (error) {
-      console.error("Error creating channel:", error);
-      alert("An error occurred while creating the channel.");
+      console.error("Error in createChannel:", error);
+      setErrorMessage(`An error occurred while creating the channel: ${error.message}`);
     }
   };
 
@@ -57,21 +75,18 @@ function JoinGame({ logOut }) {
     try {
       const response = await client.queryUsers({});
       const users = response.users;
-      console.log("al userrs : ", users);
+      console.log("all users: ", users);
 
       const members = channel?.state?.members || {};
       const channelMemberIds = Object.keys(members);
 
       const updatedUsersList = users
-        .filter(user => user.id !== client.userID) // Exclude the current user
-        .map(user => ({
+        .filter((user) => user.id !== client.userID)
+        .map((user) => ({
           ...user,
-          status: user.online
-            ? "online" // User is online
-            : "offline", // User is offline
+          status: user.online ? "online" : "offline",
         }));
 
-      // Set the current user's status as "waiting" if they are in the channel
       if (channelMemberIds.includes(client.userID)) {
         updatedUsersList.push({
           id: client.userID,
@@ -84,7 +99,7 @@ function JoinGame({ logOut }) {
       setShowUsers(true);
     } catch (error) {
       console.error("Error fetching users:", error);
-      alert("An error occurred while fetching users.");
+      setErrorMessage("An error occurred while fetching users.");
     }
   };
 
@@ -114,7 +129,7 @@ function JoinGame({ logOut }) {
               <button onClick={logOut}>Log Out</button>
             </form>
           </div>
-
+            {errorMessage && <div className="error-message-box" style={{fontSize : "17px", marginTop : "3%"}}>{errorMessage}</div>}
           {showUsers && (
             <div className="users-list-container">
               <h3 className="users-list-header">Users</h3>
