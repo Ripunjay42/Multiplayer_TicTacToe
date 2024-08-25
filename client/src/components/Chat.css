@@ -5,10 +5,12 @@ body {
   scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
   scrollbar-width: 3px;
 }
-.tic_ch{
-    display:flex;
-    flex-direction:column;
-    margin-top:0%;
+.tic_ch, .waiting{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top:0%;
   }
 
 .gameContainer{
@@ -16,7 +18,7 @@ body {
     flex-direction:column;
   }
   .mgsContainer{
-    margin-top: 5%;
+    margin-top: 2%;
     display:flex;
     flex-direction:column;
   }
@@ -283,7 +285,7 @@ body {
     transform: scale(1.05) rotate(-1deg);
   }
 
-  .playagain button{
+  .playagain button, .waiting button{
     background-color:transparent;
     border-radius: 100px;
     box-shadow: rgba(0, 0, 0, 0.863) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
@@ -310,7 +312,7 @@ body {
     margin-top: 2%;
   }
 
-  .playagain button:hover{
+  .playagain button:hover, .waiting button:hover {
     box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
     transform: scale(1.05) rotate(-1deg);
   }

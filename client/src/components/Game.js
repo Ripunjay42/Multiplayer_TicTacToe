@@ -4,7 +4,7 @@ import { Window, MessageList, MessageInput } from "stream-chat-react";
 import "./Chat.css";
 import Confetti from 'react-confetti';
 
-function Game({ channel, setChannel }) {
+function Game({ channel, setChannel, logOut }) {
   const [playersJoined, setPlayersJoined] = useState(
     channel.state.watcher_count === 2
   );
@@ -22,7 +22,8 @@ function Game({ channel, setChannel }) {
   });
 
   if (!playersJoined) {
-    return <span> Waiting for other player to join...</span>;
+    return <div className="waiting"><span> Waiting for other player to join...</span> <button onClick={logOut}>Log Out</button></div>;
+    
   }
 
 

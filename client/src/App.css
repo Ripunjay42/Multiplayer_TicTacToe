@@ -8,8 +8,9 @@ body {
 /* .background{
   justify-content: flex-start;
 	background: linear-gradient(rgba(0, 0, 0, 0.877),rgba(0, 0, 0, 0.75)),url(images/bac.jpg) no-repeat;
-	background-size: cover;
+  background-size: cover;
 	background-position: center;
+  overflow-y: auto; 
 } */
 .App {
   width: 100vw;
@@ -271,44 +272,142 @@ button:disabled {
   cursor: not-allowed;
 }
 
-
-
-/* Add to your CSS file */
-
-
-
-/* button {
-  margin: 5px;
-} */
-
-.user-list-box {
-  margin-top: 10px;
-  padding: 10px;
-  width: 100%;
-  max-width: 400px;
-  background: rgba(0, 255, 255, 0.2); /* Light cyan transparent background */
-  color: cyan;
-  border: 1px solid cyan;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  right: 10px; /* Adjust as needed */
-  top: 70px; /* Adjust as needed */
-}
-
-.user-item {
-  margin: 5px 0;
-  padding: 5px;
-  border-bottom: 1px solid cyan;
-}
-
-.user-item:last-child {
-  border-bottom: none;
-}
-
-
 .gameContainer{
     margin-top: 0%;
 }
 
 
+.joinGame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.game-controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Add any other styles for game controls */
+}
+
+.users-list-container {
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.users-list {
+  width: 100%;
+  border: 1px solid cyan;
+  border-radius: 2px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  max-height: 300px; /* Adjust as needed */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: cyan transparent;
+}
+
+/* Webkit browsers (Chrome, Safari, newer versions of Edge) */
+.users-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.users-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.users-list::-webkit-scrollbar-thumb {
+  background-color: cyan;
+  border-radius: 4px;
+}
+
+.user-item {
+  height: 30px;
+  border: 1px solid cyan;
+  border-radius: 5px;
+  background-color: transparent;
+  color: cyan;
+  font-size: 16px;
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 825px) {
+  .users-list {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .joinGame{
+    width: 70%;
+  }
+
+  .users-list-container {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+}
+
+/* @media (max-width: 1024px) {
+  .users-list {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+
+  .joinGame{
+    width: 60%;
+  }
+} */
+
+
+.users-list-header {
+  color: cyan;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  /* border-bottom: 1px solid cyan; */
+}
+
+.online-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.online-indicator.online {
+  background-color: #00ff00; /* Bright green for online users */
+}
+
+.online-indicator.offline {
+  background-color: #808080; /* Gray for offline users */
+}
+
+.online-indicator.waiting {
+  background-color: #b90d0d; /* Gray for offline users */
+}
+
+.user-name {
+  flex-grow: 1;
+  /* ... any other styles you want for the username ... */
+}
+
+.waiting-symbol {
+  margin-left: 5px;
+  font-size: 20px;
+}
