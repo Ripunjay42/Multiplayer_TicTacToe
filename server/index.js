@@ -6,7 +6,8 @@ import bcrypt from "bcrypt";
 const app = express();
 
 const allowedOrigins = [
-  "https://tictactoe-multiplayer-silk.vercel.app"
+  "https://tictactoe-multiplayer-silk.vercel.app",
+  "http://localhost:3000"
 ];
 
 const corsOptions = {
@@ -98,16 +99,16 @@ app.post("/login", async (req, res) => {
 });
 
 
-// app.get('/users', async (req, res) => {
-//   try {
-//     const { usernames } = await serverClient.queryUsers({});
-//     res.status(200).json(usernames);
-//   } catch (error) {
-//     console.log('Error fetching users:', error.message);
-//     console.error('Error fetching users:', error.message);
-//     res.status(500).json({ message: 'Internal server error' });
-//   }
-// });
+app.get('/users', async (req, res) => {
+  try {
+    const { usernames } = await serverClient.queryUsers({});
+    res.status(200).json(usernames);
+  } catch (error) {
+    console.log('Error fetching users:', error.message);
+    console.error('Error fetching users:', error.message);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
 
 
 app.listen(3001, () => {
