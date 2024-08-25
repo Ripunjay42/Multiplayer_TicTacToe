@@ -33,11 +33,13 @@ function JoinGame({ logOut }) {
   };
 
   const fetchUsers = async () => {
+    console.log("Fetching users...");
     try {
       const response = await Axios.get("https://tic-tac-toe-server-six.vercel.app/users");
-      setUsers(response.data.users);
+      console.log(response.data.usernames);
+      setUsers(response.data.usernames);
     } catch (error) {
-      console.error("Error fetching users:", error);
+      console.error("Error fetching users:", error.message);
     }
   };
 
