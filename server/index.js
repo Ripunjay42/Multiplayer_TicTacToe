@@ -6,14 +6,13 @@ import bcrypt from "bcrypt";
 const app = express();
 
 const allowedOrigins = [
-  "https://tictactoe-multiplayer-silk.vercel.app", // Production domain
-  "http://localhost:3000" // Local development
+  "https://tictactoe-multiplayer-silk.vercel.app",
+  "http://localhost:3000"
 ];
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      // Allow requests with no origin (like mobile apps or Postman)
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -24,6 +23,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(express.json());
 
 
 // app.use(cors());
@@ -101,10 +101,11 @@ app.post("/login", async (req, res) => {
 
 app.get('/users', async (req, res) => {
   try {
-    const { users } = await serverClient.queryUsers();
-    res.status(200).json({ users });
+    const { users } = await serverClient.queryUsers({});
+    res.status(200).json(users);
   } catch (error) {
-    res.status(500).json({ message: 'Internal server error', error });
+    console.error('Error fetching users:', error.message);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 
