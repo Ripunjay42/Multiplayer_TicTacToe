@@ -109,7 +109,11 @@ function Board({ result, setResult, setChannel}) {
       setPlayer("X");
       setTurn("X");
       setResult({ winner: "none", state: "none" });
-      
+
+      // Send the reset-game event to notify the opponent
+      await channel.sendEvent({
+        type: "reset-game",
+      });
     }
   }
 
@@ -131,26 +135,49 @@ function Board({ result, setResult, setChannel}) {
     }
   };
 
-
   useEffect(() => {
-    const handlePlayerLeft = (event) => {
+    const handlePlayerLeft = async (event) => {
       if (event.type === 'player-left' && event.user.id !== client.userID) {
+        // Pause any ongoing sounds immediately
         clap.pause();
+  
+        // Show the alert to the current user right away
         alert("The other player has left the game.");
-        channel.stopWatching();
-        channel.removeMembers( [client.userID]);
-        channel.state.watcher_count = 0;
-        setChannel(null); 
+  
+        // Handle the channel cleanup asynchronously after the alert
+        try {
+          await channel.stopWatching();
+          await channel.removeMembers([client.userID]);
+          channel.state.watcher_count = 0;
+          setChannel(null);
+        } catch (error) {
+          console.error("Error handling player leave:", error);
+        }
       }
     };
   
-    channel.on('player-left', handlePlayerLeft);
+    const handleGameReset = () => {
+      // Reset the game state
+      setBoard(["", "", "", "", "", "", "", "", ""]);
+      setPlayer("X");
+      setTurn("X");
+      setResult({ winner: "none", state: "none" });
+      
+      // Pause the clap sound if it was playing
+      clap.pause();
+    };
   
-    // Clean up the event listener when the component unmounts
+    // Set up event listeners for player leaving and game reset events
+    channel.on('player-left', handlePlayerLeft);
+    channel.on("reset-game", handleGameReset);
+  
+    // Clean up event listeners when the component unmounts
     return () => {
       channel.off('player-left', handlePlayerLeft);
+      channel.off("reset-game", handleGameReset);
     };
   }, [channel, client.userID, setChannel]);
+  
 
   return (
     <>

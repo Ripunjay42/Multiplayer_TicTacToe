@@ -102,7 +102,7 @@ function JoinGame({ logOut }) {
   useEffect(() => {
     const intervalId = setInterval(() => {
       fetchUsers();
-    }, 1000);
+    }, 2000);
 
     return () => clearInterval(intervalId); // Cleanup interval on unmount
   }, []);
@@ -115,20 +115,22 @@ function JoinGame({ logOut }) {
         </Channel>
       ) : (
         <div className="joinGame">
-          <div className="game-controls">
-            <div>
+           <div>
               <span>Create Game</span>
             </div>
-            <form onSubmit={createChannel}>
+          <div className="game-controls">
+            <form onSubmit={createChannel} className="joinform">
               <input
                 placeholder="Username of rival..."
                 value={rivalUsername}
                 onChange={(event) => setRivalUsername(event.target.value)}
                 required
               />
-              <button type="submit">Join Game</button>
-              <button onClick={logOut}>Log Out</button>
+              {/* <button type="submit" style={{alignItems : 'center'}}>Join Game</button>
+              <button onClick={logOut} style={{alignItems : 'center'}}>Log Out</button> */}
             </form>
+            <button type="submit"  onClick={createChannel}>Join Game</button>
+            <button onClick={logOut} >Log Out</button>
           </div>
           {errorMessage && <div className="error-message-box" style={{fontSize : "17px", marginTop : "3%"}}>{errorMessage}</div>}
           {showUsers && (
@@ -143,7 +145,7 @@ function JoinGame({ logOut }) {
                     </div>
                   ))
                 ) : (
-                  <div className="user-item">No users found</div>
+                  <div></div>
                 )}
               </div>
             </div>

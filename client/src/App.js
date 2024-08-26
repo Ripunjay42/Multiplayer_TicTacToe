@@ -49,6 +49,7 @@ function App({setisClick})
 
   return (
     <>
+    <div className='background'>
     <div className="App">
         {isAuth ? (
           <>
@@ -77,6 +78,7 @@ function App({setisClick})
               </div>
           </div>
         )}
+    </div>
     </div>
     </>
   );

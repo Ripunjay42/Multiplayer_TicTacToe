@@ -13,11 +13,12 @@ function Home()
     }
 
   return (
-    <div className='background'>
+    <>
     {isClick ? (
         <App setisClick={setisClick}/>
     ) : (
-    <>
+    
+    <div className='background'>
         <div className='Home'>
             <div className='content'>
             <div className="animated">
@@ -50,9 +51,9 @@ function Home()
                 <p>&copy; by Ripunjay Choudhury</p>
             </footer>
         </div>
-    </>        
+    </div>     
     )}
-    </div>
+    </>
   )
 }
 
