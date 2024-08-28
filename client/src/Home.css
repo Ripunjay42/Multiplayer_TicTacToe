@@ -25,7 +25,7 @@ body {
     font-weight: bolder;
     font-size: 43px;
     color:cyan;
-    font-style: italic;
+    /* font-style: italic; */
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column ;

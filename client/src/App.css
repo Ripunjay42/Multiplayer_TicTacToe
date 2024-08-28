@@ -30,7 +30,7 @@ body {
   font-weight: bolder;
   font-size: 43px;
   color:cyan;
-  font-style: italic;
+  /* font-style: italic; */
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -49,7 +49,7 @@ body {
   font-weight: bolder;
   font-size: 43px;
   color:cyan;
-  font-style: italic;
+  /* font-style: italic; */
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -200,7 +200,7 @@ body {
   cursor: pointer;
   display: grid;
   place-items: center;
-  font-size: 97px;
+  font-size: 80px;
   /* color: rgb(212, 11, 11); */
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
