@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import App from './App';
-import './Home.css'
+import './Home.css';
 import image from './images/back.gif';
 import icon from './images/dev.jpg';
+import { GiAbstract024, GiAbstract044 } from 'react-icons/gi';  // Example icons from react-icons
 import { motion } from "framer-motion";
 
 function Home() 
@@ -30,14 +31,17 @@ function Home()
                 >
                     TIC-TAC-TOE
                 </motion.span>
-                <motion.span
-                    style={{ fontSize: "30px", color: "#9932CC" }}
+                <motion.div
+                    className="multiplayer-container"
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 >
-                    MULTIPLAYER
-                </motion.span>
+                    <GiAbstract024 size={40} color="#9932CC" />
+                    <span style={{ fontSize: "30px", color: "#9932CC", margin: '0 10px' }}>MULTIPLAYER</span>
+                    <GiAbstract044 size={40} color="#9932CC" />
+                </motion.div>
             </div>
             </div>
             <div className='gifi'>
@@ -57,4 +61,4 @@ function Home()
   )
 }
 
-export default Home
+export default Home;

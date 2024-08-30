@@ -109,4 +109,13 @@ body {
 }
 
 
+.multiplayer-container img {
+  display: inline-block;
+}
+
+.multiplayer-container span {
+  display: inline-block;
+  margin: 0 10px; /* Adjust spacing as needed */
+}
+
   
