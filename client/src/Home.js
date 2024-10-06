@@ -61,7 +61,7 @@ function Home()
                     letterSpacing: "0.05em",
                 }}
             >
-                <p>Experience the excitement of real-time multiplayer Tic-Tac-Toe, featuring instant matchmaking and a live player list.
+                <p>Experience the excitement of real-time multiplayer Tic-Tac-Toe, featuring matchmaking and a live player list.
                      Chat with other players during the game, thanks to the integrated Stream Chat API. 
                      Challenge your friends or find new opponents online for seamless gameplay and communication.</p>
             </motion.div>
