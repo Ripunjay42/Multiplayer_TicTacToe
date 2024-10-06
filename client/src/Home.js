@@ -47,7 +47,25 @@ function Home()
             <div className='gifi'>
                 <img width='340px' height='340px' src={image} alt="gif"/>
             </div>
-            <div className='play1'>
+            <motion.div 
+                className='about-game'
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                style={{ 
+                    color: "antiquewhite", // White text
+                    maxWidth: "420px", // Limit the paragraph width
+                    margin: "10px auto", // Center the div and add vertical space above and below
+                    textAlign: "center", // Center the text inside the div
+                    lineHeight: "1.8",
+                    letterSpacing: "0.05em",
+                }}
+            >
+                <p>Experience the excitement of real-time multiplayer Tic-Tac-Toe, featuring instant matchmaking and a live player list.
+                     Chat with other players during the game, thanks to the integrated Stream Chat API. 
+                     Challenge your friends or find new opponents online for seamless gameplay and communication.</p>
+            </motion.div>
+            <div className='play1' style={{ marginTop: "0px" }}>
                 <button onClick={handleClick}>Let's Play</button>
             </div>
             <footer className='copy'>
