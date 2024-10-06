@@ -47,6 +47,9 @@ function Home()
             <div className='gifi'>
                 <img width='340px' height='340px' src={image} alt="gif"/>
             </div>
+            <div className='play1' style={{ marginTop: "20px" }}>
+                <button onClick={handleClick}>Let's Play</button>
+            </div>
             <motion.div 
                 className='about-game'
                 initial={{ opacity: 0, y: 50 }}
@@ -65,9 +68,7 @@ function Home()
                      Chat with other players during the game, thanks to the integrated Stream Chat API. 
                      Challenge your friends or find new opponents online for seamless gameplay and communication.</p>
             </motion.div>
-            <div className='play1' style={{ marginTop: "0px" }}>
-                <button onClick={handleClick}>Let's Play</button>
-            </div>
+            
             <footer className='copy'>
                 <img width='100px' height='100px' src={icon} alt="ico"/>
                 <p>&copy; by Ripunjay Choudhury</p>
